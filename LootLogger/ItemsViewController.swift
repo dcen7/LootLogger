@@ -36,7 +36,6 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         let item = itemStore.allItems[indexPath.row]
         
@@ -44,5 +43,13 @@ class ItemsViewController: UITableViewController {
         cell.detailTextLabel?.text = "$\(item.valueInDollars)"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let item = itemStore.allItems[indexPath.row]
+            itemStore.removeItem(item)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
