@@ -47,29 +47,47 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="5RX-lF-Z8e" detailTextLabel="qAH-CM-484" style="IBUITableViewCellStyleValue1" id="82S-Ty-X7Y">
-                                <rect key="frame" x="0.0" y="104.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="82S-Ty-X7Y" customClass="ItemCell" customModule="LootLogger" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="104.5" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="82S-Ty-X7Y" id="rSA-KD-TXb">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5RX-lF-Z8e">
-                                            <rect key="frame" x="20" y="15" width="25" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqu-wL-WEp">
+                                            <rect key="frame" x="20" y="11" width="35.5" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qAH-CM-484">
-                                            <rect key="frame" x="361" y="15" width="33" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBI-wM-FHy">
+                                            <rect key="frame" x="20" y="29" width="28.5" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7x-14-e7c">
+                                            <rect key="frame" x="358.5" y="24" width="35.5" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Xqu-wL-WEp" firstAttribute="leading" secondItem="rSA-KD-TXb" secondAttribute="leadingMargin" id="BFe-J1-FhI"/>
+                                        <constraint firstItem="wBI-wM-FHy" firstAttribute="leading" secondItem="Xqu-wL-WEp" secondAttribute="leading" id="F56-w9-E3K"/>
+                                        <constraint firstAttribute="trailing" secondItem="G7x-14-e7c" secondAttribute="trailing" constant="20" symbolic="YES" id="JW6-Hq-nUO"/>
+                                        <constraint firstItem="G7x-14-e7c" firstAttribute="centerY" secondItem="rSA-KD-TXb" secondAttribute="centerY" id="PAa-b6-DET"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wBI-wM-FHy" secondAttribute="bottom" constant="4" id="gwZ-L8-lky"/>
+                                        <constraint firstItem="Xqu-wL-WEp" firstAttribute="top" secondItem="rSA-KD-TXb" secondAttribute="topMargin" id="rgf-6u-XYo"/>
+                                        <constraint firstItem="wBI-wM-FHy" firstAttribute="top" secondItem="Xqu-wL-WEp" secondAttribute="bottom" constant="1" id="zZE-NO-jl7"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="Xqu-wL-WEp" id="hB7-CO-bhI"/>
+                                    <outlet property="serialNumberLabel" destination="wBI-wM-FHy" id="lQ1-ww-GE1"/>
+                                    <outlet property="valueLabel" destination="G7x-14-e7c" id="zts-Sw-GHT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
