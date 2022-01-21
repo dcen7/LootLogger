@@ -88,6 +88,7 @@
                                     <outlet property="nameLabel" destination="Xqu-wL-WEp" id="hB7-CO-bhI"/>
                                     <outlet property="serialNumberLabel" destination="wBI-wM-FHy" id="lQ1-ww-GE1"/>
                                     <outlet property="valueLabel" destination="G7x-14-e7c" id="zts-Sw-GHT"/>
+                                    <segue destination="ojP-pd-eVz" kind="show" identifier="showItem" id="pt5-Ih-qid"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -101,16 +102,16 @@
             </objects>
             <point key="canvasLocation" x="-10.144927536231885" y="50.892857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="qGV-GT-Nfx">
             <objects>
-                <viewController id="ojP-pd-eVz" sceneMemberID="viewController">
+                <viewController id="ojP-pd-eVz" customClass="DetailViewController" customModule="LootLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aoa-gB-J4l">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pn3-AG-LKg">
-                                <rect key="frame" x="20" y="52" width="374" height="818"/>
+                                <rect key="frame" x="20" y="8" width="374" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="afa-ot-9kN">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -161,7 +162,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lB-bY-d7E">
-                                        <rect key="frame" x="0.0" y="126" width="374" height="692"/>
+                                        <rect key="frame" x="0.0" y="126" width="374" height="682"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -183,6 +184,13 @@
                             <constraint firstItem="pn3-AG-LKg" firstAttribute="bottom" secondItem="ObG-e3-Ud1" secondAttribute="bottom" constant="8" id="vw0-Em-al8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="sQx-Dp-4aG"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="1lB-bY-d7E" id="2eW-bu-3P3"/>
+                        <outlet property="nameField" destination="bto-Mj-DBz" id="lJH-CJ-OLj"/>
+                        <outlet property="serialNumberField" destination="MMx-Hn-KHT" id="vEF-dy-c0J"/>
+                        <outlet property="valueField" destination="UeH-vj-x4N" id="YxQ-ar-rgC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YDY-yw-nJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
