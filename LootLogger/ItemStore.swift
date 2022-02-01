@@ -16,6 +16,20 @@ class ItemStore {
         return documentDirectory.appendingPathComponent("item.plist")
     }()
     
+    init() {
+        do {
+            let data  =  try Data(contentsOf: itemArchiveURL)
+            let unarchiver = PropertyListDecoder()
+            let items = try unarchiver.decode([Item].self, from: data)
+            allItems = items
+        } catch {
+            print("Error reading in saved items: \(error)")
+        }
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(saveChanges), name: UIScene.didEnterBackgroundNotification, object: nil)
+    }
+    
     @discardableResult func createItem() -> Item {
         let newItem = Item(random: true)
         
@@ -40,7 +54,7 @@ class ItemStore {
         allItems.insert(movedItem, at: toIndex)
     }
     
-    func saveChanges() -> Bool {
+    @objc func saveChanges() -> Bool {
         print("Saving items to: \(itemArchiveURL)")
         
         do{
