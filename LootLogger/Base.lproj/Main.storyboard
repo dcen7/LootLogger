@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pn3-AG-LKg">
-                                <rect key="frame" x="20" y="96" width="374" height="774"/>
+                                <rect key="frame" x="20" y="96" width="374" height="714"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="afa-ot-9kN">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -147,7 +147,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lB-bY-d7E">
-                                        <rect key="frame" x="0.0" y="126" width="374" height="648"/>
+                                        <rect key="frame" x="0.0" y="126" width="374" height="588"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -160,15 +160,31 @@
                                     <constraint firstItem="bto-Mj-DBz" firstAttribute="leading" secondItem="MMx-Hn-KHT" secondAttribute="leading" id="Rl3-2L-mFN"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9C-7g-dxm">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="p4O-n4-86m"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="6X7-Hz-b9H">
+                                        <connections>
+                                            <action selector="choosePhotoSource:" destination="ojP-pd-eVz" id="r4J-vx-l9t"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ObG-e3-Ud1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ObG-e3-Ud1" firstAttribute="trailing" secondItem="pn3-AG-LKg" secondAttribute="trailing" constant="20" id="5PE-Q9-lQ3"/>
+                            <constraint firstAttribute="trailing" secondItem="t9C-7g-dxm" secondAttribute="trailing" id="OIi-mW-6zi"/>
                             <constraint firstItem="pn3-AG-LKg" firstAttribute="leading" secondItem="ObG-e3-Ud1" secondAttribute="leading" constant="20" id="Xsk-o7-L1q"/>
+                            <constraint firstItem="t9C-7g-dxm" firstAttribute="top" secondItem="pn3-AG-LKg" secondAttribute="bottom" constant="8" id="rWi-Tw-GC2"/>
                             <constraint firstItem="pn3-AG-LKg" firstAttribute="top" secondItem="ObG-e3-Ud1" secondAttribute="top" constant="8" id="rXq-y9-wgf"/>
-                            <constraint firstItem="pn3-AG-LKg" firstAttribute="bottom" secondItem="ObG-e3-Ud1" secondAttribute="bottom" constant="8" id="vw0-Em-al8"/>
+                            <constraint firstItem="t9C-7g-dxm" firstAttribute="leading" secondItem="Aoa-gB-J4l" secondAttribute="leading" id="w6Q-OL-LKH"/>
+                            <constraint firstItem="t9C-7g-dxm" firstAttribute="bottom" secondItem="ObG-e3-Ud1" secondAttribute="bottom" id="y5H-Ec-gdX"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="TSH-LO-At5" appends="YES" id="vPN-6h-ln4"/>
