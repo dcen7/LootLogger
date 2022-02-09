@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB2D99B427B3198F00B67672 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2D99B327B3198E00B67672 /* ImageStore.swift */; };
 		FBF6FB4B2785F98700FD63D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF6FB4A2785F98700FD63D3 /* AppDelegate.swift */; };
 		FBF6FB4D2785F98700FD63D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF6FB4C2785F98700FD63D3 /* SceneDelegate.swift */; };
 		FBF6FB522785F98700FD63D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF6FB502785F98700FD63D3 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB2D99B327B3198E00B67672 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		FBF6FB472785F98700FD63D3 /* LootLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LootLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF6FB4A2785F98700FD63D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF6FB4C2785F98700FD63D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				FBF6FB4C2785F98700FD63D3 /* SceneDelegate.swift */,
 				FBF6FB502785F98700FD63D3 /* Main.storyboard */,
 				FBF6FB8C2799998D00FD63D3 /* DetailViewController.swift */,
+				FB2D99B327B3198E00B67672 /* ImageStore.swift */,
 				FBF6FB532785F98E00FD63D3 /* Assets.xcassets */,
 				FBF6FB552785F98E00FD63D3 /* LaunchScreen.storyboard */,
 				FBF6FB582785F98E00FD63D3 /* Info.plist */,
@@ -273,6 +276,7 @@
 				FBF6FB8127860A6900FD63D3 /* Item.swift in Sources */,
 				FBF6FB7F2786028B00FD63D3 /* ItemsViewController.swift in Sources */,
 				FBF6FB872795E3F100FD63D3 /* ItemCell.swift in Sources */,
+				FB2D99B427B3198F00B67672 /* ImageStore.swift in Sources */,
 				FBF6FB4B2785F98700FD63D3 /* AppDelegate.swift in Sources */,
 				FBF6FB832786143900FD63D3 /* ItemStore.swift in Sources */,
 				FBF6FB4D2785F98700FD63D3 /* SceneDelegate.swift in Sources */,
