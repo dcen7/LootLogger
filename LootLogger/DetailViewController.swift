@@ -23,13 +23,51 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     var imageStore: ImageStore!
     
-    func imagePicker(for sourceType: UIImagePickerController.SourceType) -> UIImagePickerController {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = sourceType
-        imagePicker.delegate = self
-        return imagePicker
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    
+    let dateFormatter: DateFormatter = {
+       let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter
+    }()
+    
+    //MARK: - View Lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        nameField.text = item.name
+        serialNumberField.text = item.serialNumber
+        valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
+        dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        
+        let key = item.itemKey
+        let image = imageStore.image(forKey: key)
+        imageView.image = image
+        
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
+        
+        item.name = nameField.text ?? ""
+        item.serialNumber = serialNumberField.text
+        
+        if let valueText = valueField.text, let value = numberFormatter.number(from: valueText) {
+            item.valueInDollars = value.intValue
+        } else {
+            item.valueInDollars = 0
+        }
+    }
+    
+    //MARK: - Actions
     @IBAction func choosePhotoSource(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -59,6 +97,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         present(alertController, animated: true, completion: nil)
     }
     
+    //MARK: - Image Picker Data Source
+    func imagePicker(for sourceType: UIImagePickerController.SourceType) -> UIImagePickerController {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = self
+        return imagePicker
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as! UIImage
         imageStore.setImage(image, forKey: item.itemKey)
@@ -66,34 +112,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         dismiss(animated: true, completion: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        nameField.text = item.name
-        serialNumberField.text = item.serialNumber
-        valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
-        dateLabel.text = dateFormatter.string(from: item.dateCreated)
-        
-        let key = item.itemKey
-        let image = imageStore.image(forKey: key)
-        imageView.image = image
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        view.endEditing(true)
-        
-        item.name = nameField.text ?? ""
-        item.serialNumber = serialNumberField.text
-        
-        if let valueText = valueField.text, let value = numberFormatter.number(from: valueText) {
-            item.valueInDollars = value.intValue
-        } else {
-            item.valueInDollars = 0
-        }
-    }
-    
+    //MARK: - Text Field Deletage Method
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -102,19 +121,4 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    
-    let numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 2
-        return formatter
-    }()
-    
-    let dateFormatter: DateFormatter = {
-       let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        return formatter
-    }()
 }

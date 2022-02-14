@@ -12,17 +12,19 @@ class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
     var imageStore: ImageStore!
     
+    // MARK: - Initializers
+    required init?(coder aDocoder: NSCoder) {
+        super.init(coder: aDocoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
-    }
-    
-    required init?(coder aDocoder: NSCoder) {
-        super.init(coder: aDocoder)
-        
-        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +33,7 @@ class ItemsViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    // MARK: - Actions
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         let newItem = itemStore.createItem()
         
@@ -41,6 +44,21 @@ class ItemsViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showItem":
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.item = item
+                detailViewController.imageStore = imageStore
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier")
+        }
+    }
+    
+    // MARK: - Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count
     }
@@ -69,18 +87,6 @@ class ItemsViewController: UITableViewController {
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "showItem":
-            if let row = tableView.indexPathForSelectedRow?.row {
-                let item = itemStore.allItems[row]
-                let detailViewController = segue.destination as! DetailViewController
-                detailViewController.item = item
-                detailViewController.imageStore = imageStore
-            }
-        default:
-            preconditionFailure("Unexpected segue identifier")
-        }
-    }
+    
 }
    
