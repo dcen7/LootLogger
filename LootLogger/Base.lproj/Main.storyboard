@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9a8-9W-Xt6">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +16,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="igC-J4-RHV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Primary Brand Fill Color"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="82S-Ty-X7Y" customClass="ItemCell" customModule="LootLogger" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="65"/>
@@ -55,6 +56,7 @@
                                         <constraint firstItem="wBI-wM-FHy" firstAttribute="top" secondItem="Xqu-wL-WEp" secondAttribute="bottom" constant="1" id="zZE-NO-jl7"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" name="Primary Brand Fill Color"/>
                                 <connections>
                                     <outlet property="nameLabel" destination="Xqu-wL-WEp" id="hB7-CO-bhI"/>
                                     <outlet property="serialNumberLabel" destination="wBI-wM-FHy" id="lQ1-ww-GE1"/>
@@ -105,6 +107,7 @@
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bto-Mj-DBz">
                                                         <rect key="frame" x="53" y="0.0" width="321" height="34"/>
+                                                        <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -124,6 +127,7 @@
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MMx-Hn-KHT">
                                                         <rect key="frame" x="53" y="0.0" width="321" height="34"/>
+                                                        <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -143,6 +147,8 @@
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeH-vj-x4N">
                                                         <rect key="frame" x="53" y="0.0" width="321" height="34"/>
+                                                        <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                                                        <color key="tintColor" systemColor="tertiarySystemFillColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -159,7 +165,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="Primary Brand Fill Color"/>
                                         <constraints>
                                             <constraint firstItem="MMx-Hn-KHT" firstAttribute="leading" secondItem="UeH-vj-x4N" secondAttribute="leading" id="DoZ-Ym-27t"/>
                                             <constraint firstItem="bto-Mj-DBz" firstAttribute="leading" secondItem="MMx-Hn-KHT" secondAttribute="leading" id="Rl3-2L-mFN"/>
@@ -169,6 +175,7 @@
                                         <rect key="frame" x="0.0" y="154.5" width="374" height="559.5"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" name="Primary Brand Fill Color"/>
                                 <variation key="heightClass=compact" axis="horizontal" distribution="fillEqually"/>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9C-7g-dxm">
@@ -183,10 +190,11 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="tintColor" name="Secondary Brand Fill Color"/>
                             </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ObG-e3-Ud1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Primary Brand Fill Color"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="U7f-tS-hhc" firstAttribute="leading" secondItem="Aoa-gB-J4l" secondAttribute="leadingMargin" id="Dia-Xf-mMQ"/>
@@ -227,6 +235,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EIe-kJ-8EI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Secondary Brand Fill Color"/>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -239,9 +248,19 @@
             <point key="canvasLocation" x="-10.144927536231885" y="50.892857142857139"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="Brand Accent Color"/>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <namedColor name="Brand Accent Color">
+            <color red="0.94117647058823528" green="0.30980392156862746" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary Brand Fill Color">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary Brand Fill Color">
+            <color red="0.92549019607843142" green="0.92156862745098034" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="tertiarySystemFillColor">
+            <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
